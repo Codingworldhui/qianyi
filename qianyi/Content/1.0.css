@@ -1,0 +1,187 @@
+﻿/* Reset some default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* 允许元素换行 */
+}
+
+.search-section {
+    margin-top:10px;
+    flex-basis: 100%;
+    /* 换行并占据一行的整个宽度 */
+    text-align: center;
+    /* 水平居中 */
+}
+
+/* 为搜索栏添加红色边框和占满横向空间 */
+.search input[type="text"] {
+    width: 80%;
+    /* 横向占满 */
+    border: 2px solid rgb(0, 195, 255);
+    /* 添加红色描边 */
+    border-radius: 15px;
+    /* 圆润的边角 */
+    padding: 5px;
+    /* 可选，增加内边距以改善外观 */
+}
+
+    /* 去掉输入框默认的边框样式 */
+    .search input[type="text"]:focus {
+        outline: none;
+    }
+
+
+/* 可以根据需要进一步调整样式 */
+
+/* Set a common font and background color */
+body {
+    font-family: Arial, sans-serif;
+
+    background-image: url('./background2.png');
+
+    background-size: cover;
+    /* 使背景图片覆盖整个body */
+    background-repeat: no-repeat;
+    /* 防止背景图片重复 */
+    background-attachment: fixed;
+    /* 固定背景图片，不随页面滚动 */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* 使用 rgba 来设置背景颜色和透明度 */
+}
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container to center content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: auto;
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+h2 {
+    display: inline-block;
+}
+
+select#sort {
+    display: inline-block;
+}
+
+.search {
+    margin-bottom: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Product List Styles */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-item {
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* margin: 10px 0; */
+    margin-bottom: 70px;
+    padding: 0px;
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+}
+
+    .product-item img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-item h3 {
+        margin: 10px 0;
+        font-size: 1.2em;
+    }
+
+.product-item {
+    position: relative;
+    /* 让内容相对定位以容纳绝对定位的文字 */
+    /* 其他样式属性如背景颜色、内边距等可以根据需要进行设置 */
+}
+
+.product-info {
+    position: absolute;
+    bottom: 0;
+    /* 将元素固定在图片的底部 */
+    left: 0;
+    width: 100%;
+    /* 设置宽度为图片宽度的 40% */
+    opacity: 0;
+    /* 初始状态下透明 */
+    background-color: rgba(82, 82, 92, 0.372);
+    /* 背景透明 */
+    padding: 10px;
+    text-align: left;
+    /* 文字左对齐，从左向右显示 */
+    z-index: 1;
+    /* 确保文字信息显示在图片之上 */
+    transition: opacity 0.3s;
+    /* 添加过渡效果 */
+    bottom: 10px;
+}
+
+.product-item:hover .product-info {
+    opacity: 1;
+    /* 渐变显示文字信息 */
+}
+
+.product-item:hover p {
+    top: 0;
+    /* 移动到顶部位置 */
+    opacity: 1;
+    /* 渐变显示文字信息 */
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #ddd;
+        border-radius: 5px;
+        margin-top: 50px;
+        text-decoration: none;
+        color: #333;
+    }
+
+ .pagination a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+

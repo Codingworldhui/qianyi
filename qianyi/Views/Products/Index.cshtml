@@ -1,0 +1,152 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using qianyi.Models
+@model List<Product>
+<header>
+    <h1>Welcome to the e-commerce website</h1>
+</header>
+<script>
+    var products = @Html.Raw(Json.Encode(Model));
+    var cart = [];
+    function addToCart(productId, productName, productPrice) {
+        // 创建一个购物车项
+        var cartItem = {
+            id: productId,
+            name: productName,
+            price: productPrice
+        }
+        // 添加到购物筐数组
+        cart.push(cartItem);
+
+        // 更新购物筐显示
+        updateCartDisplay();
+    }
+    function updateCartDisplay() {
+        var cartCount = cart.length;
+        var cartTotal = 0;
+
+        for (var i = 0; i < cart.length; i++) {
+            cartTotal += cart[i].price;
+        }
+        document.getElementById("cartCount").textContent = cartCount;
+        document.getElementById("cartTotal").textContent = "$" + cartTotal.toFixed(2);
+    }
+</script>
+<style>
+    /* 样式导航栏 */
+    form {
+        /*border: 2px solid #f5e5b5;*/ /* 淡黄色描边 */
+        /*border-radius: 10px;*/ /* 圆角边框 */
+        padding: 5px; /* 添加内边距，增加空间感 */
+        display: inline-block; /* 显示为内联块，以便使边框适应内容大小 */
+    }
+
+    label {
+        margin-bottom: 10px; /* 增加下边距，增强外观 */
+        font-weight: bold; /* 可选，使标签文字加粗 */
+        font-size: 16px; /* 可选，设置字体大小 */
+    }
+
+    select {
+        padding: 5px; /* 增加内边距，增强外观 */
+        border: 3px solid #f5e5b5; /* 添加淡黄色描边 */
+        border-radius: 5px; /* 圆角边框 */
+        font-size: 16px; /* 可选，设置字体大小 */
+    }
+
+    .navbar {
+        background-color: #333; /* 设置背景颜色 */
+        color: white; /* 设置文字颜色 */
+        padding: 10px 0; /* 设置上下内边距和左右内边距 */
+    }
+
+        .navbar ul {
+            list-style: none; /* 移除列表样式 */
+            padding: 0;
+        }
+
+            .navbar ul li {
+                display: inline; /* 横向显示列表项 */
+                margin-right: 20px; /* 项之间的右边距 */
+            }
+
+        .navbar a {
+            text-decoration: none; /* 移除链接下划线 */
+            color: white; /* 设置链接文字颜色 */
+        }
+
+            .navbar a:hover {
+                text-decoration: underline; /* 鼠标悬停时显示下划线 */
+            }
+</style>
+
+<div class="navbar">
+    <ul>
+        <li>@Html.ActionLink("Web Introduction", "Index", "Default")</li>
+        <li><a href="https://localhost:44334/Products">Products</a></li>
+        @Html.ActionLink("Products Details", "C", "Products")
+    </ul>
+</div>
+<div class="container">
+    <!-- 原有的内容保持不变 -->
+</div>
+<div class="container">
+    <div class="filters">
+        <div class="search-section">
+            <h2>Search</h2>
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button class="search-button" onclick="searchProducts()">
+                    <img src="magnifying-glass-icon.png" alt="Search" style="width: 23px;height: 20px;">
+                </button>
+            </div>
+        </div>
+        <!-- 筛选功能 -->
+        <main>
+            <form onsubmit="sortSelect(); return false;">
+                <label for="sortOption">Sort by:</label>
+                <select id="sortOption">
+
+                    <option value="priceLowToHigh">Price Low To High</option>
+                    <option value="priceHighToLow">Price High To Low</option>
+                </select>
+                <input type="submit" value="Sort">
+            </form>
+        </main>
+    </div>
+    <div class="product-list">
+
+
+        @foreach (var product in Model)
+        {
+            <div class="product-item">
+                <a href="@product.ImageUrl">
+                    <img src="@product.ImageUrl" alt="@product.Category">
+                </a>
+                <div class="product-info">
+                    <h3>@product.Name</h3>
+                    <span>@product.Price $</span>
+                    <p>Category: @product.Category.Category</p>
+                    <p>@product.Description</p>
+                    <button class="add-to-cart" onclick="addToCart(@product.Id, '@product.Name', @product.Price)">Add to Cart</button>
+                </div>
+            </div>
+        }
+    </div>
+    <div id="cartInfo" class="cart-info">
+        <span>Cart: <span id="cartCount">0</span> items</span>
+        <span>Total: <span id="cartTotal">$0.00</span></span>
+    </div>
+    <button>Buy!</button>
+    <div class="pagination">
+        <a href="#" id="page1">1</a>
+        <a href="#" id="page2">2</a>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,163 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Our E-commerce Website</title>
+    <style>
+        /* 添加样式规则来创建气泡状文本框和设置背景颜色 */
+        .feature-box {
+            display: inline-block;
+            background-color: pink; /* 粉红背景 */
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 70px;
+            margin-left:85px;
+            margin-bottom:59px;
+            width: 300px;
+            text-align: center;
+ 
+            height: 300px
+        }
+
+            .feature-box.blue {
+                background-color: deepskyblue; /* 蔚蓝背景 */
+            }
+
+            .feature-box.white {
+                background-color: beige; /* 米白背景 */
+            }
+
+            .feature-box.pure-white {
+                background-color: white; /* 纯白背景 */
+            }
+
+        #slideshow-container {
+            border-radius: 20px;
+            position: relative;
+            max-width: 600px; /* 设置容器的最大宽度，根据需要进行调整 */
+            margin: 0 auto; /* 水平居中 */
+            overflow: hidden; /* 隐藏溢出内容 */
+            height: 300px; /* 设置容器的高度，根据需要进行调整，以创建长方形幻灯片 */
+        }
+
+        .slide {
+            display: none;
+        }
+
+            .slide:first-child {
+                display: block; /* 显示第一张幻灯片 */
+            }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持图片纵横比，填充整个容器 */
+            border-radius: 20px; /* 同时应用圆角边框到图片 */
+        }
+        .navbar {
+            background-color: #333; /* 设置背景颜色 */
+            color: white; /* 设置文字颜色 */
+            padding: 10px 0; /* 设置上下内边距和左右内边距 */
+        }
+
+            .navbar ul {
+                list-style: none; /* 移除列表样式 */
+                padding: 0;
+            }
+
+                .navbar ul li {
+                    display: inline; /* 横向显示列表项 */
+                    margin-right: 20px; /* 项之间的右边距 */
+                }
+
+            .navbar a {
+                text-decoration: none; /* 移除链接下划线 */
+                color: white; /* 设置链接文字颜色 */
+            }
+
+                .navbar a:hover {
+                    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+                }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the E-commerce Website</h1>
+        <p>This is a simple and pure shopping webpage without any advertisements, you can find the best deals on a wide range of products.</p>
+        <p>Click anywhere to enter the website.</p>
+    </header>
+    <div class="navbar">
+        <ul>
+            <li>@Html.ActionLink("Web Introduction", "Index", "Default")</li>
+            <li><a href="https://localhost:44334/Products">Products</a></li>
+            @Html.ActionLink("Products Details", "C", "Products")
+        </ul>
+    </div>
+    <div class="video-background">
+        <div class="video-wrap"></div>
+    </div>
+    <div class="feature-box">
+        <h3>Clean</h3>
+        <p>Our platform emphasizes a clean and minimalist interface, ensuring a clutter-free and intuitive user experience. By keeping things uncluttered, we aim to provide an easy-to-navigate environment for our users.</p>
+    </div>
+
+    <div class="feature-box blue">
+        <h3>Simple</h3>
+        <p>Simplicity is our core principle. We believe in offering a straightforward and user-friendly experience. Our services are designed to be easily understandable and navigable for all users.</p>
+    </div>
+
+    <div class="feature-box white">
+        <h3>No Ads</h3>
+        <p>Enjoy our platform without interruptions. We are proud to maintain an ad-free environment, providing an undisturbed and immersive experience for our users. Focus on what matters without any intrusive advertisements.</p>
+    </div>
+
+    <div class="feature-box pure-white">
+        <h3>Great Products</h3>
+        <p>We offer an array of exceptional products. Quality is our priority, and we take pride in providing a selection of premium items. Our dedication to delivering high-quality goods ensures your satisfaction and delight.</p>
+    </div>
+    <div id="slideshow-container">
+        <div class="slide">
+            <img src="p111.png" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="p22.jpg" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="p33.png" alt="Image 3">
+        </div>
+        <div class="slide">
+            <img src="p44.png" alt="Image 4">
+        </div>
+    </div>
+
+
+</body>
+</html>
+<script>
+    // 当文档加载完成后执行
+    document.addEventListener("DOMContentLoaded", function () {
+        // 获取初始页元素
+        var landingPage = document.querySelector('body');
+
+        // 添加点击事件，点击初始页时跳转到你的电子商务网站
+        landingPage.addEventListener('click', function () {
+            window.location.href = "https://localhost:44334/Products"; // 将 "URL_TO_YOUR_ECOMMERCE_WEBSITE" 替换为你网站的实际 URL
+        });
+    });
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1; // Restart the slideshow
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds (2000 milliseconds)
+    }
+</script>

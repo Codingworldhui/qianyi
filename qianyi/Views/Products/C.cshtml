@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewBag.Title = "C";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>产品介绍</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        
+            flex-wrap: wrap;
+        }
+
+        .product-box {
+            width: 40%;
+            min-height: 300px;
+            background: #f7f7f7;
+            margin: 1rem;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+            .product-box:nth-child(2n+1) {
+                background: #e6e6e6;
+            }
+
+            .product-box:nth-child(3n+2) {
+                background: #dcdcdc;
+            }
+
+            .product-box:nth-child(4n+3) {
+                background: #cfcfcf;
+            }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .navbar {
+            width:100%;
+            background-color: #333; /* 设置背景颜色 */
+            color: white; /* 设置文字颜色 */
+            padding: 10px 0; /* 设置上下内边距和左右内边距 */
+        }
+
+            .navbar ul {
+                list-style: none; /* 移除列表样式 */
+                padding: 0;
+            }
+
+                .navbar ul li {
+                    display: inline; /* 横向显示列表项 */
+                    margin-right: 20px; /* 项之间的右边距 */
+                }
+
+            .navbar a {
+                text-decoration: none; /* 移除链接下划线 */
+                color: white; /* 设置链接文字颜色 */
+            }
+
+                .navbar a:hover {
+                    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+                }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li>@Html.ActionLink("Web Introduction", "Index", "Default")</li>
+            <li><a href="https://localhost:44334/Products">Products</a></li>
+            @Html.ActionLink("Products Details", "C", "Products")
+        </ul>
+    </div>
+    <div class="product-box">
+        <div class="product-title">Pink minimalist handbag</div>
+        <div class="product-description">
+            Price：$29.99<br>
+            This pink minimalist handbag is the ideal choice for fashionable women. Its pink appearance is full of vitality, while providing sufficient storage space to accommodate your essential items. Whether it's shopping, dating, or daily use, this handbag can add a lot of color to your appearance.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Deep Brown Minimalist Handbag</div>
+        <div class="product-description">
+            Price: $19.99<br>
+            This deep brown minimalist handbag will bring practicality and style to your daily life. Its design is simple, making it a fashionable accessory to complement various outfits. This handbag is your everyday essential companion, allowing you to easily carry your phone, wallet, and cosmetics.
+        </div>
+    </div>
+    <div class="product-box">
+        <div class="product-title">Vacuum Flask</div>
+        <div class="product-description">
+            Price: $129.99<br>
+            This vacuum flask provides hot water anytime, anywhere. Whether you're in the office, going on outdoor adventures, or traveling, it ensures that your beverages stay at the ideal temperature. It's a practical companion to quench your thirst.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Desktop Decorations</div>
+        <div class="product-description">
+            Price: $729.99<br>
+            These minimalist-style desktop decorations make life more relaxed. Their design is simple yet exquisite, adding a touch of fashion to your office desk or living space. Elevate your taste in life and enjoy the tranquility and aesthetics they bring.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Luggage</div>
+        <div class="product-description">
+            Price: $629.99<br>
+            This luggage will bring joy to every one of your trips. Its design is vibrant, and it's made with high quality to ensure the safety and neatness of your belongings. Wherever you go, this luggage is a reliable travel companion you can trust.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Electric Toothbrush</div>
+        <div class="product-description">
+            Price: $529.99<br>
+            This electric toothbrush is dedicated to giving you healthier teeth. Its brush head is cleverly designed for effective teeth cleaning, keeping your oral hygiene fresh and healthy. Give yourself a smile worth having and choose this electric toothbrush.
+        </div>
+    </div>
+
+
+    <div class="product-box">
+        <div class="product-title">Minimalist Decor</div>
+        <div class="product-description">
+            Price: $429.99<br>
+            These eco-friendly minimalist decor pieces can add a touch of color to your daily life. Their design is simple and suitable for various occasions. Use them to embellish your home and create a harmonious space for both the environment and your soul.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Sleek Pen</div>
+        <div class="product-description">
+            Price: $39.99<br>
+            This sleek pen is the ideal tool for writing. Its design is simple and elegant, offering an excellent writing experience. Whether you're taking notes at work or expressing your creativity, this pen will meet your needs.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Water Bottle</div>
+        <div class="product-description">
+            Price: $59.99<br>
+            This water bottle reminds you of the benefits of staying hydrated. It features a clever design, is easy to carry, and is the perfect companion for your daily hydration needs. Make water your secret to health by choosing this water bottle.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Cultural Creative Luggage</div>
+        <div class="product-description">
+            Price: $2449.99<br>
+            This cultural creative luggage integrates culture with travel. Its design is full of creativity, providing ample storage space for you to experience different cultures during your travels. Choose this luggage to make your journey more exciting.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Office Supplies</div>
+        <div class="product-description">
+            Price: $449.99<br>
+            These office supplies will simplify your work. They have a highly functional design that helps you increase work efficiency. Whether you're working from home or in the office, these office supplies are your reliable assistants.
+        </div>
+    </div>
+
+    <div class="product-box">
+        <div class="product-title">Lipstick</div>
+        <div class="product-description">
+            Price: $779.99<br>
+            This lipstick ensures long-lasting beauty. Its texture is smooth, and the colors are vibrant, ensuring your makeup is perfect at all times. Whether it's for daily makeup or special occasions, choose this lipstick to make your beauty last.
+        </div>
+    </div>
+
+
+
+    <!-- 继续添加其他产品的介绍 -->
+
+</body>
+</html>
